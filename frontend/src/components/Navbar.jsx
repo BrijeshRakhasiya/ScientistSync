@@ -20,7 +20,7 @@ const Navbar = ({ user, onLogout }) => {
                 </Link>
                 
                 <ul className="navbar-nav">
-                    <li><Link to="/" className="nav-link">Home</Link></li>
+                    {/* <li><Link to="/" className="nav-link">Home</Link></li> */}
                     
                     {user ? (
                         <>

@@ -84,12 +84,13 @@ body {
 
 .btn-outline {
     background-color: transparent;
-    border: 1px solid #d1d5db;
-    color: #374151;
+    border: 1px solid #f8f8f8;
+    color: #fafcff;
 }
 
 .btn-outline:hover {
-    background-color: #f9fafb;
+    background-color: #ffffff;
+    color: black;
 }
 
 .btn-danger {
@@ -255,7 +256,7 @@ p {
 }
 
 .auth-subtitle {
-    color: #6b7280;
+    color: #f9f9f9;
 }
 
 .auth-link {
@@ -321,7 +322,7 @@ p {
 }
 
 .nav-link {
-    color: #4b5563;
+    color: #e5e9ee;
     text-decoration: none;
     padding: 8px 16px;
     border-radius: 6px;
@@ -338,7 +339,7 @@ p {
 }
 
 .nav-user-info {
-    color: #6b7280;
+    color: #f3f4f7;
     font-size: 14px;
     padding: 8px 0;
 }
@@ -414,7 +415,10 @@ p {
     position: relative;
     text-align: center;
     padding: 100px 20px;
-    background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 50%, #1e40af 100%);
+    background-color: #99d8f1;
+
+
+
     color: white;
     margin-bottom: 40px;
     overflow: hidden;
@@ -470,8 +474,9 @@ p {
     margin-bottom: 40px;
     opacity: 0.95;
     line-height: 1.6;
+    color: rgb(60, 6, 97);
     font-weight: 400;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    
 }
 
 .hero-features {
@@ -952,6 +957,7 @@ p {
 }
 
 .section-header {
+    /* color: grey; */
     text-align: center;
     margin-bottom: 40px;
 }

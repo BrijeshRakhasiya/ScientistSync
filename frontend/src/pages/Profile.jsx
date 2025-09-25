@@ -121,10 +121,10 @@ const Profile = ({ user }) => {
             {/* Research Papers Section */}
             <section className="user-research-section">
                 <div className="section-header">
-                    <h2 style={{ color: 'white', fontSize: '2rem', marginBottom: '10px' }}>
+                    <h2 style={{ color: 'grey', fontSize: '2rem', marginBottom: '10px' }}>
                         Your Research Papers
                     </h2>
-                    <p style={{ color: 'rgba(255,255,255,0.9)', marginBottom: '20px' }}>
+                    <p style={{ color: 'rgba(110, 104, 104, 0.9)', marginBottom: '20px' }}>
                         Manage and track your published research
                     </p>
                 </div>
