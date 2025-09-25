@@ -1,5 +1,5 @@
 // ScientistSync Backend Server
-// Team Member 1: Backend Developer - Express server setup and authentication routes
+//  Express server setup and authentication routes
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -26,8 +26,8 @@ mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
-.then(() => console.log("🚀 ScientistSync MongoDB connected successfully!"))
-.catch((err) => console.log("❌ MongoDB connection error:", err));
+.then(() => console.log(" ScientistSync MongoDB connected successfully!"))
+.catch((err) => console.log(" MongoDB connection error:", err));
 
 // Models
 const Research = require("./models/Research");
@@ -362,7 +362,7 @@ app.use((err, req, res, next) => {
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-    console.log(`🚀 ScientistSync server running on port ${PORT}`);
-    console.log(`📊 Dashboard: http://localhost:${PORT}`);
-    console.log(`🔗 Frontend: http://localhost:3000`);
+    console.log(` ScientistSync server running on port ${PORT}`);
+    console.log(` Dashboard: http://localhost:${PORT}`);
+    console.log(` Frontend: http://localhost:3000`);
 });

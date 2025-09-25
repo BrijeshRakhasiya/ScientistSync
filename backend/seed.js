@@ -1,4 +1,4 @@
-// Team Member 2: Database Developer - Database Seeding Script
+// Database Seeding Script
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const connectDB = require("./config/db");
@@ -50,7 +50,7 @@ const sampleResearch = [
         upvotes: 24,
         viewCount: 156,
         commentCount: 8,
-        link: 'https://example.com/research/ml-medical-diagnosis'
+        link: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC8950225/'
     },
     {
         title: 'CRISPR Gene Editing: Revolutionary Approaches to Genetic Disorders',
@@ -95,34 +95,34 @@ const sampleComments = [
 
 const seed = async () => {
     try {
-        console.log('🌱 Starting database seeding...');
+        console.log(' Starting database seeding...');
         
         // Connect to database
         await connectDB();
 
         // Clear existing data
-        console.log('🧹 Clearing existing data...');
+        console.log(' Clearing existing data...');
         await User.deleteMany({});
         await Research.deleteMany({});
         await Comment.deleteMany({});
 
         // Create users
-        console.log('👥 Creating sample users...');
+        console.log('Creating sample users...');
         const createdUsers = await User.insertMany(sampleUsers);
-        console.log(`✅ Created ${createdUsers.length} users`);
+        console.log(`Created ${createdUsers.length} users`);
 
         // Create research papers with user references
-        console.log('📚 Creating sample research papers...');
+        console.log(' Creating sample research papers...');
         const researchWithAuthors = sampleResearch.map((research, index) => ({
             ...research,
             author: createdUsers[index]._id
         }));
         
         const createdResearch = await Research.insertMany(researchWithAuthors);
-        console.log(`✅ Created ${createdResearch.length} research papers`);
+        console.log(` Created ${createdResearch.length} research papers`);
 
         // Create comments
-        console.log('💬 Creating sample comments...');
+        console.log(' Creating sample comments...');
         const commentsWithRefs = sampleComments.map((comment, index) => ({
             ...comment,
             author: createdUsers[index % createdUsers.length]._id,
@@ -130,17 +130,17 @@ const seed = async () => {
         }));
 
         const createdComments = await Comment.insertMany(commentsWithRefs);
-        console.log(`✅ Created ${createdComments.length} comments`);
+        console.log(` Created ${createdComments.length} comments`);
 
-        console.log('🎉 Database seeding completed successfully!');
-        console.log('🔍 Test Login Credentials:');
+        console.log(' Database seeding completed successfully!');
+        console.log(' Test Login Credentials:');
         console.log('   Email: john.smith@university.edu | Password: Password123!');
         console.log('   Email: jane.doe@research.org | Password: Password123!');
         console.log('   Email: wilson@physics.edu | Password: Password123!');
         
         process.exit(0);
     } catch (error) {
-        console.error("❌ Seeding Error:", error);
+        console.error(" Seeding Error:", error);
         process.exit(1);
     }
 };

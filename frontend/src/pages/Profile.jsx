@@ -1,4 +1,4 @@
-// Team Member 3: Frontend Developer - Profile Page Component
+//  Profile Page Component
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import '../App.css';

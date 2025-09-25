@@ -1,4 +1,4 @@
-// Team Member 2: Database Developer - Comment Model Schema
+// Comment Model Schema
 const mongoose = require("mongoose");
 
 const CommentSchema = new mongoose.Schema({

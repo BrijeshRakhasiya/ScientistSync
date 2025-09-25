@@ -1,4 +1,4 @@
-// Team Member 3: Frontend Developer - Notification Component for Inline Messages
+//  Notification Component for Inline Messages
 import React, { useState, useEffect } from 'react';
 
 const Notification = ({ type, message, duration = 4000, onClose }) => {

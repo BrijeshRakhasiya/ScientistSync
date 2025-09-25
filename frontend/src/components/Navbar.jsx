@@ -1,4 +1,4 @@
-// Team Member 3: Frontend Developer - Modern Professional Navbar Component
+// Modern Professional Navbar Component
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.css';

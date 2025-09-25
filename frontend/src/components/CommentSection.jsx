@@ -1,4 +1,4 @@
-// Team Member 3: Frontend Developer - Comment Section Component
+// Comment Section Component
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import { voteComment } from '../services/api';

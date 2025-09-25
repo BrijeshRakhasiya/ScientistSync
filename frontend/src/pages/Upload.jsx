@@ -1,4 +1,4 @@
-// Team Member 3: Frontend Developer - Enhanced Upload Page with Professional White Theme
+// Enhanced Upload Page with Professional White Theme
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';

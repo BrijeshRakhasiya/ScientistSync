@@ -1,4 +1,4 @@
-// Team Member 2: Database Developer - Research Model Schema
+// Research Model Schema
 const mongoose = require("mongoose");
 
 const ResearchSchema = new mongoose.Schema({

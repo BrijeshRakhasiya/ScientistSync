@@ -1,4 +1,4 @@
-// Team Member 2: Database Developer - User Model Schema
+//  User Model Schema
 const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
