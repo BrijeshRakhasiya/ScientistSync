@@ -277,7 +277,7 @@ const Upload = ({ user }) => {
                                 value={formData.coAuthors}
                                 onChange={handleChange}
                                 className="form-control"
-                                placeholder="Dr. Jane Smith, Prof. John Doe"
+                                placeholder="Dr. HC Verma, Prof. Abdul Kalam"
                             />
                             <small style={{ color: '#666666', fontSize: '12px' }}>
                                 Separate co-authors with commas
