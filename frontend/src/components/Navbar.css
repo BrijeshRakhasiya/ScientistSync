@@ -1,6 +1,7 @@
 /* Modern Navbar Styles */
 .navbar {
-    background: white;
+    
+    /* background: white; */
     border-bottom: 1px solid #e2e8f0;
     padding: 16px 0;
     position: sticky;
@@ -10,6 +11,7 @@
 }
 
 .navbar .container {
+    /* background-color: ; */
     display: flex;
     justify-content: space-between;
     align-items: center;
