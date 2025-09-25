@@ -416,8 +416,8 @@ p {
     text-align: center;
     padding: 100px 20px;
     background-color: #99d8f1;
-
-
+    border-radius: 30px;
+    margin: 20px;
 
     color: white;
     margin-bottom: 40px;
@@ -440,6 +440,7 @@ p {
 }
 
 .hero-content {
+    border-radius: 20px;
     position: relative;
     z-index: 2;
     max-width: 800px;
@@ -449,7 +450,7 @@ p {
 .hero-badge {
     display: inline-block;
     background: rgba(255, 255, 255, 0.2);
-    color: white;
+    color: rgb(3, 65, 84);
     padding: 8px 20px;
     border-radius: 50px;
     font-size: 14px;
