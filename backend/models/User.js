@@ -76,6 +76,13 @@ const userSchema = new mongoose.Schema({
     citationCount: {
         type: Number,
         default: 0
+    },
+    // Role-based access control
+    role: {
+        type: String,
+        enum: ['user', 'admin'],
+        default: 'user',
+        index: true
     }
 }, {
     timestamps: true

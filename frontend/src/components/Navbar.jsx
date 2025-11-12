@@ -26,6 +26,9 @@ const Navbar = ({ user, onLogout }) => {
                         <>
                             <li><Link to="/upload" className="nav-link">Upload Research</Link></li>
                             <li><Link to="/profile" className="nav-link">Profile</Link></li>
+                            {(user.role === 'admin' || (typeof window !== 'undefined' && sessionStorage.getItem('adminSecret'))) && (
+                                <li><Link to="/admin" className="nav-link">Admin</Link></li>
+                            )}
                             <li>
                                 <span className="nav-user-info">
                                     Welcome, {user.fullName || user.username}!

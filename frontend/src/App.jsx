@@ -7,6 +7,7 @@ import Upload from "./pages/Upload";
 import Profile from "./pages/Profile";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import Admin from "./pages/Admin";
 import './App.css';
 
 const App = () => {
@@ -77,6 +78,10 @@ const App = () => {
             <Route 
               path="/signup" 
               element={<Signup onSignup={loginUser} />} 
+            />
+            <Route 
+              path="/admin" 
+              element={<Admin user={user} />} 
             />
           </Routes>
         </main>

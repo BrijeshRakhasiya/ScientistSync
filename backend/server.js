@@ -33,6 +33,7 @@ mongoose.connect(process.env.MONGO_URI, {
 const Research = require("./models/Research");
 const Comment = require("./models/Comment");
 const User = require("./models/User");
+const adminRoutes = require('./routes/adminRoutes');
 
 // Default route for testing
 app.get('/', (req, res) => {
@@ -43,7 +44,8 @@ app.get('/', (req, res) => {
             '/api/auth/signup - POST',
             '/api/auth/login - POST', 
             '/api/research - GET/POST',
-            '/api/comments - GET/POST'
+      '/api/comments - GET/POST',
+      '/api/admin/* - Admin endpoints (protected)'
         ]
     });
 });
@@ -120,13 +122,15 @@ app.post('/api/auth/signup', async (req, res) => {
         await newUser.save();
         
         // Return user data (excluding password)
-        const userResponse = {
+    const userResponse = {
             id: newUser._id,
             username: newUser.username,
             email: newUser.email,
             fullName: newUser.fullName,
             affiliation: newUser.affiliation,
-            joinDate: newUser.joinDate
+      joinDate: newUser.joinDate,
+      role: newUser.role,
+      isVerified: newUser.isVerified
         };
         
         res.status(201).json({
@@ -163,13 +167,15 @@ app.post('/api/auth/login', async (req, res) => {
         }
         
         // Return user data (excluding password)
-        const userResponse = {
+    const userResponse = {
             id: user._id,
             username: user.username,
             email: user.email,
             fullName: user.fullName,
             affiliation: user.affiliation,
-            joinDate: user.joinDate
+      joinDate: user.joinDate,
+      role: user.role,
+      isVerified: user.isVerified
         };
         
         res.json({
@@ -353,6 +359,9 @@ app.post("/api/comments/:id/vote", async (req, res) => {
     res.status(500).json({ message: "Error voting on comment", error: error.message });
   }
 });
+
+// Admin routes (protected by ADMIN_SECRET header)
+app.use('/api/admin', adminRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {

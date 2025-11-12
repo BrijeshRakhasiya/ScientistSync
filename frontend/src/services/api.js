@@ -26,4 +26,19 @@ export const voteComment = (commentId, voteType, userId) => API.post(`/comments/
 // User APIs
 export const fetchUserProfile = (userId) => API.get(`/users/${userId}`);
 
+// Admin APIs (send X-Admin-Secret header)
+const withAdminHeader = (adminSecret) => ({ headers: { 'X-Admin-Secret': adminSecret } });
+
+export const adminGetStats = (adminSecret) => API.get('/admin/stats', withAdminHeader(adminSecret));
+export const adminListUsers = (adminSecret) => API.get('/admin/users', withAdminHeader(adminSecret));
+export const adminSetUserRole = (userId, role, adminSecret) => API.patch(`/admin/users/${userId}/role`, { role }, withAdminHeader(adminSecret));
+export const adminVerifyUser = (userId, isVerified, adminSecret) => API.patch(`/admin/users/${userId}/verify`, { isVerified }, withAdminHeader(adminSecret));
+
+export const adminListResearch = (adminSecret, includeDeleted = true) => API.get(`/admin/research?includeDeleted=${includeDeleted}`, withAdminHeader(adminSecret));
+export const adminDeleteResearch = (id, adminSecret) => API.delete(`/admin/research/${id}`, withAdminHeader(adminSecret));
+export const adminRestoreResearch = (id, adminSecret) => API.patch(`/admin/research/${id}/restore`, {}, withAdminHeader(adminSecret));
+
+export const adminListComments = (adminSecret, researchId) => API.get(`/admin/comments${researchId ? `?researchId=${researchId}` : ''}`, withAdminHeader(adminSecret));
+export const adminDeleteComment = (id, adminSecret) => API.delete(`/admin/comments/${id}`, withAdminHeader(adminSecret));
+
 export default API;

@@ -10,6 +10,13 @@ ScientistSync is a full-stack web application designed to connect scientists, fa
 - View and interact with other scientists' profiles
 - Responsive and modern UI
 
+### Admin Panel (New)
+- Protected admin endpoints with a shared secret
+- View platform stats (users, research, comments)
+- Manage users (promote/demote admin, verify/unverify)
+- Moderate research (soft delete/restore)
+- Moderate comments (soft delete)
+
 ---
 
 ## Project Structure
@@ -60,7 +67,12 @@ ScientistSync/
    ```sh
    node seed.js
    ```
-5. Start the backend server:
+5. Configure Admin Secret (required for admin endpoints):
+   Create or edit `.env` in `backend/` and add:
+   ```env
+   ADMIN_SECRET=your-strong-admin-secret
+   ```
+6. Start the backend server:
    ```sh
    npm start
    ```
@@ -84,16 +96,36 @@ ScientistSync/
 ---
 
 ## API Endpoints (Backend)
-- `/api/users` - User registration, login, profile
+- `/api/auth/signup` - User signup
+- `/api/auth/login` - User login
 - `/api/research` - Upload, fetch, and manage research papers
 - `/api/comments` - Comment on research
+- `/api/admin/*` (Protected with `X-Admin-Secret: <ADMIN_SECRET>` header):
+   - `GET /api/admin/stats`
+   - `GET /api/admin/users`
+   - `PATCH /api/admin/users/:id/role` body: `{ role: 'user' | 'admin' }`
+   - `PATCH /api/admin/users/:id/verify` body: `{ isVerified: boolean }`
+   - `GET /api/admin/research?includeDeleted=true`
+   - `DELETE /api/admin/research/:id` (soft delete)
+   - `PATCH /api/admin/research/:id/restore`
+   - `GET /api/admin/comments[?researchId=...]`
+   - `DELETE /api/admin/comments/:id` (soft delete)
 
 ---
 
 ## Technologies Used
 - **Backend:** Node.js, Express, MongoDB, Mongoose
 - **Frontend:** React, CSS
-- **Other:** EJS (for server-side views), JWT (for authentication)
+- **Other:** EJS (for server-side views)
+
+---
+
+## Using the Admin Panel (Frontend)
+1. Ensure the backend has `ADMIN_SECRET` set and is running.
+2. From the UI, log in. If your account has role `admin`, you will see an Admin link in the navbar. Alternatively, navigate to `/admin` and enter the Admin Secret once to unlock in this session.
+3. Use the tabs to view stats, manage users, research, and comments.
+
+Note: This project uses a shared-secret header for admin in lieu of a full JWT/session auth system. For production, integrate proper auth and server-side session/JWT validation.
 
 ---
 
